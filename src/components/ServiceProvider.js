@@ -14,8 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import axios from "axios"
-import "./style.css"
 import { Pagination } from "antd"
+
 
 
 
@@ -136,8 +136,8 @@ const ServiceProvider = () => {
                 currentPage.map((sp, index) => {
                   return (
                     <>
-                      <Grid item xs={12} sm={6} md={3} lg={3} key={index}>
-                        <Card sx={{ maxWidth: 345, minHeight: 360 }}>
+                      <Grid item xs={12} sm={6} md={3} lg={3} key={index} style={{display:"flex", justifyContent:"center"}}>
+                        <Card sx={{ minWidth: "100%", minHeight: 360 }}>
                           <CardActionArea style={{ margin: "auto 0" }}>
                             <center>
                               <CardMedia
