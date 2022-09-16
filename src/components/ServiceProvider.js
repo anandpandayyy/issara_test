@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import axios from "axios"
-
+import "./style.css"
 import { Pagination } from "antd"
 
 
@@ -61,23 +61,20 @@ const ServiceProvider = () => {
     if (serviceProviders) {
       if (value !== "") {
         finalArr = serviceProviders.find(obj => {
-          if(obj.name.toLowerCase().includes(value)){
+          if (obj.name.toLowerCase().includes(value)) {
             return obj
           }
         });
       }
-      else{
+      else {
         finalArr = serviceProviders
       }
     }
   }, [value])
-  
+
   const languageChangeHandler = (event: SelectChangeEvent) => {
     setDefaultLanguages(event.target.getAttribute("data-value"));
   };
-  
-  
-  debugger
 
 
   const indexOfLastPage = page * postPerPage
@@ -155,11 +152,12 @@ const ServiceProvider = () => {
                                 {sp.name}
                               </Typography>
                               <Typography gutterBottom component="div" style={{ fontSize: "12px" }}>
-                                Email : {sp.email ? sp.email : "No email"}
+                                Email : {sp.email ? sp.email : "N/A"}
                               </Typography>
 
+                              <span style={{ fontSize: "12px", cursor: "pointer" }}>Website : </span>
                               <a href={sp.website} style={{ fontSize: "12px", cursor: "pointer" }} target="_blank">
-                                Website : {sp.website}
+                                {sp.website ? sp.website : "N/A"}
                               </a>
                               <Grid style={{ display: "flex", justifyContent: "space-between", marginTop: "5px" }}>
                                 <Typography gutterBottom component="div" style={{ fontSize: "12px" }}>
@@ -172,6 +170,7 @@ const ServiceProvider = () => {
                             </CardContent>
                           </CardActionArea>
                         </Card>
+
                       </Grid>
 
                     </>
